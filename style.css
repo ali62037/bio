@@ -1,0 +1,720 @@
+body{
+    margin: 0;
+    background-color: black;
+    color: white;
+    padding: 0;
+    overflow: hidden;
+}
+
+.main{
+    display: flex;
+    height: 100vh;
+}
+.home#home.active{
+    filter: blur(20px);
+}
+
+.menu{
+    background-color: rgb(32, 32, 32);
+    width: 18rem;
+    border-radius:1rem 1rem 1rem 1rem;
+    margin-top: 0.5rem;
+    margin-bottom: 0.5rem;
+    margin-left: 0.4rem;
+    
+}
+
+.home{
+    background-color: rgb(32, 32, 32);
+    margin-left: 0.5rem;
+    margin-right: 0.4rem;
+    margin-top: 0.5rem;
+    border-radius:20px 20px 0px 0px;
+    width: 100%;
+    height: 100vh;
+    overflow: auto;
+    scrollbar-color: rgb(137, 132, 132) black;
+}
+a{
+    text-decoration: none;
+    color: white;
+}
+.side{
+    margin-bottom: 5rem;
+    font-size: 2rem;
+    padding-top: 2rem;
+    padding-left: 2rem;
+}
+.menu_list{
+    margin-left: 1.5rem;
+    font-size: 1.3rem;
+    line-height: 3.4rem;
+}
+
+.menu_list i{
+    padding-right: 1rem;
+}
+.menu_list:hover{
+    font-size: 1.4rem;
+}
+
+.icon{
+    margin-top: 1.5rem;
+    margin-left: 2rem;
+}
+
+.icon i {
+    margin: 0.5rem;
+    font-size: 1rem;
+    cursor: pointer;
+}
+
+.icon i:hover{
+    font-size: 1.3rem;
+    
+}
+
+#fb:hover{
+    color: #1877F2;
+}
+
+#insta:hover{
+    color:  #8a3ab9;
+}
+
+#yt:hover{
+    color: #CD201F;
+}
+
+#whats:hover{
+    color: #075e54;
+}
+
+.photo img{
+    margin-right: 1.5rem;
+    margin-top: 3rem;
+}
+.Home{
+    display: flex;
+}
+.web{
+    margin-top: 10rem;
+    margin-left: 2rem;
+}
+
+.web button{
+    background-color: #f03645;
+    padding-left: 1rem;
+    padding-top: 0.8rem;
+    padding-bottom: 0.8rem;
+    padding-right: 1rem;
+    margin-top: 0.5rem;
+    font-size: 1rem;
+    border: #f03645;
+}
+.web button i{
+    padding-right: 0.5rem;
+    color: white;
+}
+.web button:hover{
+    background-color: grey;
+}
+.about{
+    background-color: black;
+}
+
+.about p{
+    text-align: center;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-size: 1.4rem;
+    font-weight: 600;
+    padding-top: 1rem;
+    
+}
+#into{
+    color: red;
+}
+.about h1{
+    text-align: center;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    line-height: 1rem;
+    margin-bottom: 6rem;
+}
+.img img{
+    margin-left: 7rem;
+    border: 2px solid white;
+}
+.about_one{
+    display: flex;
+}
+
+.about_two h2{
+    text-align: left;
+    margin-left: 8rem;
+    line-height: 1rem;
+    margin-bottom: 0;
+
+}
+
+.about_two p{
+    text-align: left;
+    margin-left: 8rem;
+    font-weight: 400;
+    font-size: 1.5rem;
+}
+.box{
+    display: flex;
+    margin-top: 4rem;
+}
+.experience{
+   border: 2px solid rgb(69, 67, 67);
+    height: 5.5rem;
+    width: 6rem;
+    background-color: rgb(69, 67, 67);
+    border-radius: 3px;
+    margin-left: 8rem;
+    display:grid;
+    text-align: center;
+}
+.experience a{
+    font-size: 1.3rem;
+    font-weight: 500;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+.experience i{
+    margin-top: 1rem;
+    color: red;
+}
+.Project{
+    border: 2px solid rgb(69, 67, 67);
+    height: 5.5rem;
+    width: 6rem;
+    background-color: rgb(69, 67, 67);
+    border-radius: 3px;
+    margin-left: 2rem;
+    display: grid;
+    text-align: center;
+
+}
+.Project a{
+    font-size: 1.3rem;
+    font-weight: 500;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+
+}
+.Project i{
+    
+    margin-top: 1rem;
+    color: red;
+}
+.pro{
+    font-size: 1rem;
+    opacity: 0.7;
+}
+.ex{
+    opacity: 0.7;
+    font-size: 1rem;
+}
+.support{
+    border: 2px solid rgb(69, 67, 67);
+    height: 5.5rem;
+    width: 6rem;
+    background-color: rgb(69, 67, 67);
+    border-radius: 3px;
+    margin-left: 2rem;
+    display:grid;
+    text-align: center;
+}
+.support a{
+    font-size: 1.3rem;
+    font-weight: 500;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+.on{
+    font-size: 1rem;
+    opacity: 0.7;
+}
+.support i{
+    margin-top: 1rem;
+    color: red;
+}
+#btn1{
+    background-color: #f03645;
+    padding-left: 1rem;
+    padding-top: 0.8rem;
+    padding-bottom: 0.8rem;
+    padding-right: 1rem;
+    margin-top: 2rem;
+    font-size: 1rem;
+    border: #f03645;
+    margin-left: 8rem;
+    border-radius: 0.2rem;
+    margin-bottom: 2rem;
+}
+.project_one1{
+    background-color: rgb(26, 25, 25);
+    width: 100%;
+}
+.project_one1 h1{
+    text-align: center;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    line-height: 1rem;
+    margin-bottom: 6rem;
+}
+#po{
+    color: red;
+}
+
+.gramin{
+    background-color: #2a2b48;
+    height: 19rem;
+    width: 19rem;
+    border: 1rem solid #2a2b48;
+    margin-left: 2rem;
+    margin-bottom: 2rem;
+    padding-bottom: 2rem;
+    border-radius: 0.4rem;
+}
+.gramin img{
+    width: 100%;
+    border-radius: 0.4rem;   
+}
+.gramin p{
+    text-align: left;
+}
+.gramin i{
+    color: red;
+}
+.gramin a{
+    color: red;
+    font-weight: 600;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-size: 1.2rem;
+}
+.portfolio{
+    background-color: #2a2b48;
+    height: 19rem;
+    width: 19rem;
+    border: 1rem solid #2a2b48;
+    margin-left: 2rem;
+    margin-bottom: 2rem;
+    padding-bottom: 2rem;
+    border-radius: 0.4rem;
+}
+.portfolio img{
+    width: 100%;
+    border-radius: 0.4rem;
+}
+.portfolio p{
+    text-align: left;
+}
+.portfolio i{
+    color: red;
+}
+.portfolio a{
+    color: red;
+    font-weight: 600;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-size: 1.2rem;
+}
+.smartboard{
+    background-color: #2a2b48;
+    height: 19rem;
+    width: 19rem;
+    border: 1rem solid #2a2b48;
+    margin-left: 2rem;
+    margin-bottom: 2rem;
+    padding-bottom: 2rem;
+    margin-right: 2rem;
+    border-radius: 0.4rem;
+}
+.smartboard img{
+    width: 100%;
+    border-radius: 0.4rem;
+}
+.smartboard p{
+    text-align: left;
+}
+.smartboard i{
+    color: red;
+}
+.smartboard a{
+    color: red;
+    font-weight: 600;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-size: 1.4rem;
+}
+.work{
+    display: flex;
+    justify-content: center;
+}
+.service_one{
+    background-color: rgb(26, 25,25);
+    width: 100%;
+    
+}
+.service_one h1{
+    text-align: center;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    line-height: 1rem;
+    margin-bottom: 6rem;
+}
+.ser{
+    color: red;
+}
+.web1{
+    background-color: #2a2b48;
+    height: 12rem;
+    width: 12rem;
+    border: 2px solid #2a2b48;
+    margin-left: 2rem;
+    margin-bottom: 2rem;
+    padding-bottom: 2rem;
+    margin-right: 2rem;
+    padding-left: 2rem;
+    border-radius: 0.4rem;
+}
+#fire{
+    margin-top: 3.5rem;
+    font-size: 2.2rem;
+    color: red;
+}
+.web1 p{
+    text-align: left;
+    padding: 0;
+}
+.web1 a{
+    color: red;
+    font-weight: 600;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-size: 1;
+    margin: 0;
+}
+.web1 i{
+    color: red;
+}
+.ui{
+    background-color: #2a2b48;
+    height: 12rem;
+    width: 12rem;
+    border: 2px solid #2a2b48;
+    margin-left: 2rem;
+    margin-bottom: 2rem;
+    padding-bottom: 2rem;
+    margin-right: 2rem;
+    padding-left: 2rem;
+    border-radius: 0.4rem;
+}
+#des{
+    margin-top: 3.5rem;
+    font-size: 2.2rem;
+    color: red;
+}
+.ui p{
+    text-align: left;
+    padding: 0;
+}
+.ui a{
+    color: red;
+    font-weight: 600;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-size: 1;
+    margin: 0;
+}
+.ui i{
+    color: red;
+}
+.brand{
+    background-color: #2a2b48;
+    height: 12rem;
+    width: 12rem;
+    border: 2px solid #2a2b48;
+    margin-left: 2rem;
+    margin-bottom: 2rem;
+    padding-bottom: 2rem;
+    margin-right: 2rem;
+    padding-left: 2rem;
+    border-radius: 0.4rem;
+}
+#brad{
+    margin-top: 3.5rem;
+    font-size: 2.2rem;
+    color: red;
+}
+.brand p{
+    text-align: left;
+    padding: 0;
+}
+.brand a{
+    color: red;
+    font-weight: 600;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-size: 1;
+    margin: 0;
+}
+.brand i{
+    color: red;
+}
+.service_two{
+    display: flex;
+    margin-left: 6rem;
+    margin-right: 6rem;
+}
+.contact1{
+    background-color: rgb(26, 25,25);
+}
+.contact1 h1{
+    text-align: center;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    line-height: 1rem;
+    margin-bottom: 6rem;
+}
+#con{
+    color: red;
+}
+.conmail{
+    background-color: #2a2b48;
+    height: 8rem;
+    width: 12rem;
+    border: 2px solid #2a2b48;
+    margin-left: 14rem;
+    margin-bottom: 2rem;
+    margin-right: 2rem;
+    border-radius: 0.5rem;
+    text-align: center;
+    padding: 0%;
+}
+#cone{
+    font-size: 2rem;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+   
+}
+#Writ{
+    margin-top: 1rem;
+    color: red;
+}
+#writ{
+    color: red;
+}
+.conwhatsapp{
+    background-color: #2a2b48;
+    height: 6rem;
+    width: 12rem;
+    border: 2px solid #2a2b48;
+    margin-left: 14rem;
+    margin-bottom: 2rem;
+    padding-bottom: 2rem;
+    margin-right: 2rem;
+    border-radius: 0.5rem;
+    text-align: center;
+}
+#conwh{
+    font-size: 2rem;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+}
+.conmessenger{
+    background-color: #2a2b48;
+    height: 6rem;
+    width: 12rem;
+    border: 2px solid #2a2b48;
+    margin-left: 14rem;
+    margin-bottom: 2rem;
+    padding-bottom: 2rem;
+    margin-right: 2rem;
+    border-radius: 0.5rem;
+    text-align: center;
+}
+#conme{
+    font-size: 2rem;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+}
+.frm{
+    display: flex;
+}
+.edua{
+    background-color: #2a2b48;
+    width: 18rem;
+    height: 8rem;
+    border-radius: 5px;
+    text-align: center;
+    margin-bottom: 2rem;
+    padding-top: 2rem;
+    
+}
+#Jour{
+    color: red;
+}
+.education h1{
+    text-align: center;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    line-height: 1rem;
+    margin-bottom: 6rem;
+}
+.edua a{
+    margin-top: 2rem;
+}
+.edu i{
+    color: red;
+    margin-right: 1rem;
+    
+}
+.edu{
+    display: flex;
+    justify-content: center;
+    margin-top: 1rem;
+    margin-bottom: 2rem;
+}
+.ed{
+    background-color: #2a2b48;
+    width: 18rem;
+    height: 8rem;
+    text-align: center;
+    border-radius: 5px;
+    padding-top: 2rem;
+    
+}
+.educ{
+    margin-top: 2rem;
+    margin-bottom: 4rem;
+    margin-right: 2rem;
+}
+.educati{
+    margin-left: 3rem;
+    margin-top: 2rem;
+    margin-bottom: 4rem;
+}
+.edu a{
+    line-height: 2rem;
+    font-size: 1.3rem;
+    cursor: pointer;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+.edu a:hover{
+    font-size: 1.6rem;
+}
+.edu a span{
+    font-size: 1rem;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+#X{
+    color: red;
+    margin-top: 1rem;
+    font-weight: 700;
+}
+.input{
+    width: 400px;
+    height: 50px;
+    border: none;
+    outline: none;
+    padding-left: 25px;
+    font-weight: 500;
+    color: #666;
+    border-radius: 50px;
+}
+.for textarea{
+    height: 140px;
+    width: 100%;
+    border-radius: 20px;
+}
+#btmn{
+    background-color: #f03645;
+    padding-left: 1rem;
+    padding-top: 0.8rem;
+    padding-bottom: 0.8rem;
+    padding-right: 1rem;
+    margin-top: 0.5rem;
+    font-size: 1rem;
+    border: #f03645;
+    color: white;
+    border-radius: 5px;
+}
+#popup{
+    position: fixed;
+    top: 50%;
+    left: 57%;
+    transform: translate(-50%, -50%);
+    width: 300px;
+    height: 300px;
+    padding: 50px;
+    box-shadow: 0 5px 30px rgba(0,0,0,.30);
+    background-color: #2a2b48;
+    color: white;  
+    border-radius: 1rem; 
+    visibility: hidden;
+    opacity: 0;
+    transition: 0.5s;
+}
+#pop{
+    position: fixed;
+    top: 50%;
+    left: 57%;
+    transform: translate(-50%, -50%);
+    width: 300px;
+    height: 300px;
+    padding: 50px;
+    box-shadow: 0 5px 30px rgba(0,0,0,.30);
+    background-color: #2a2b48;
+    color: white;  
+    border-radius: 1rem; 
+    visibility: hidden;
+    opacity: 0;
+    transition: 0.5s;
+}
+
+#popu{
+    position: fixed;
+    top: 50%;
+    left: 57%;
+    transform: translate(-50%, -50%);
+    width: 300px;
+    height: 300px;
+    padding: 50px;
+    box-shadow: 0 5px 30px rgba(0,0,0,.30);
+    background-color: #2a2b48;
+    color: white;  
+    border-radius: 1rem; 
+    visibility: hidden;
+    opacity: 0;
+    transition: 0.5s;
+}
+#popu.active{
+    visibility: visible;
+    opacity: 1;
+    transition: 0.5s;
+}
+#pop.active{
+    visibility: visible;
+    opacity: 1;
+    transition: 0.5s;
+}
+#popup.active{
+    visibility: visible;
+    opacity: 1;
+    transition: 0.5s;
+}
+.popup i{
+    color: red;
+    margin-right: 1rem;
+}
+.popup a{
+    text-align: right;
+    line-height: 2rem;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-size: 1.2rem;
+}
+.popup button{
+    background-color: #f03645;
+    margin-top: 1rem;
+    border: #f03645;
+    border-radius: 5px;
+
+}
+#cross{
+    font-size: 2rem;
+    color: #FFF;
+    align-content: center;
+    cursor: pointer;
+}
