@@ -715,6 +715,6 @@ a{
 #cross{
     font-size: 2rem;
     color: #FFF;
-    align-content: center;
+    float: right;
     cursor: pointer;
 }
