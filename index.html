@@ -2,677 +2,202 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes">
-    <title>Shere Ali · responsive portfolio</title>
-    <!-- Font Awesome 6 (same) -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <!-- inline critical style + mobile first enhancement -->
-    <style>
-        /* RESET / BASE – mobile first */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: system-ui, 'Segoe UI', Roboto, sans-serif;
-        }
-        html {
-            scroll-behavior: smooth;
-            scroll-padding-top: 70px; /* so menu doesn't hide titles */
-        }
-        body {
-            background: #f5f7fc;
-            color: #1e293b;
-            line-height: 1.5;
-        }
-        .main {
-            width: 100%;
-            overflow-x: hidden;
-        }
-        /* menu – vertical left (big screen) but we turn it into a top navbar on mobile/tablet */
-        .menu {
-            position: fixed;
-            top: 0;
-            left: 0;
-            height: 100vh;
-            width: 250px;
-            background: #ffffffd9;
-            backdrop-filter: blur(8px);
-            box-shadow: 4px 0 20px rgba(0,0,0,0.05);
-            z-index: 1000;
-            transition: transform 0.3s ease;
-        }
-        .menu nav {
-            padding: 2rem 1rem;
-            display: flex;
-            flex-direction: column;
-            height: 100%;
-        }
-        .side {
-            font-size: 1.6rem;
-            font-weight: 700;
-            letter-spacing: -0.5px;
-            color: #0f2b4b;
-            margin-bottom: 2.5rem;
-            border-bottom: 2px solid #d0d9ff;
-            padding-bottom: 0.75rem;
-        }
-        .home_l {
-            flex: 1;
-            display: flex;
-            flex-direction: column;
-            gap: 1.2rem;
-        }
-        .menu_list {
-            display: flex;
-            align-items: center;
-            gap: 1rem;
-            padding: 0.5rem 1rem;
-            border-radius: 50px;
-            transition: 0.2s;
-        }
-        .menu_list i {
-            width: 1.8rem;
-            font-size: 1.2rem;
-            color: #3b4e6b;
-        }
-        .menu_list a {
-            text-decoration: none;
-            color: #1e293b;
-            font-weight: 500;
-            font-size: 1.1rem;
-        }
-        .menu_list:hover {
-            background: #e9edff;
-        }
-        .icon {
-            margin-top: auto;
-            display: flex;
-            gap: 1.2rem;
-            font-size: 1.5rem;
-            padding: 1.5rem 0 0.5rem;
-            border-top: 1px solid #cfd9e6;
-        }
-        .icon i { cursor: pointer; }
-        #fb { color: #1877f2; }
-        #insta { color: #c32aa3; }
-        #yt { color: #ff0000; }
-        #whats { color: #25D366; }
-
-        /* ----- home/content shift desktop ----- */
-        .home {
-            margin-left: 250px;   /* space for fixed menu */
-            width: calc(100% - 250px);
-            padding: 1.5rem 2rem;
-        }
-        .Home {
-            display: flex;
-            flex-wrap: wrap;
-            align-items: center;
-            gap: 2rem;
-            margin-bottom: 3rem;
-        }
-        .web {
-            flex: 1 1 280px;
-        }
-        .web h1 {
-            font-size: 2.8rem;
-            line-height: 1.2;
-        }
-        .web h3 {
-            font-size: 1.9rem;
-            color: #2563eb;
-            margin: 0.5rem 0;
-        }
-        .web p {
-            font-size: 1.2rem;
-            max-width: 500px;
-        }
-        .web button {
-            margin-top: 1.5rem;
-            background: #1e3a8a;
-            border: none;
-            padding: 0.9rem 2rem;
-            border-radius: 40px;
-            display: inline-flex;
-            align-items: center;
-            gap: 0.8rem;
-            font-size: 1.2rem;
-            box-shadow: 0 10px 20px #1e3a8a40;
-            transition: 0.2s;
-        }
-        .web button a {
-            color: white;
-            text-decoration: none;
-            font-weight: 500;
-        }
-        .web button i { color: white; }
-        .photo {
-            flex: 1 1 280px;
-            display: flex;
-            justify-content: center;
-        }
-        .photo img {
-            max-width: 100%;
-            height: auto;
-            max-height: 500px;
-            object-fit: contain;
-            filter: drop-shadow(0 10px 12px #00000020);
-        }
-
-        /* about section */
-        .about { margin-top: 3rem; }
-        #into, #po, #Jour, .ser, #con {
-            color: #2563eb;
-            font-weight: 600;
-            letter-spacing: 0.5px;
-        }
-        .about_one {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 2.5rem;
-            background: white;
-            border-radius: 2rem;
-            padding: 2rem;
-            margin: 1.5rem 0;
-            align-items: center;
-        }
-        .img img {
-            border-radius: 50%;
-            object-fit: cover;
-            border: 4px solid #2563eb30;
-            max-width: 100%;
-            height: auto;
-        }
-        .about_two { flex: 1; }
-        .box {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 1.2rem;
-            margin: 2rem 0;
-        }
-        .experience, .Project, .support {
-            background: #f1f5f9;
-            border-radius: 30px;
-            padding: 1rem 1.8rem;
-            text-align: center;
-            flex: 1 1 130px;
-        }
-        .experience a, .Project a, .support a {
-            text-decoration: none;
-            color: #0f2b4b;
-            font-weight: 600;
-            display: block;
-        }
-        .ex, .pro, .on {
-            font-size: 0.9rem;
-            color: #2563eb;
-        }
-        #btn1 {
-            background: #0f2b4b;
-            padding: 0.9rem 2.2rem;
-            border: none;
-            border-radius: 40px;
-        }
-        #btn1 a { color: white; text-decoration: none; font-size: 1.1rem; }
-
-        /* project cards */
-        .work {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 2rem;
-            justify-content: center;
-            margin: 2rem 0;
-        }
-        #port {
-            background: white;
-            border-radius: 28px;
-            padding: 1.5rem 1rem;
-            text-align: center;
-            flex: 1 1 250px;
-            max-width: 300px;
-            box-shadow: 0 10px 20px #00000010;
-        }
-        #port img {
-            border-radius: 20px;
-            width: 100%;
-            height: auto;
-            max-height: 200px;
-            object-fit: cover;
-        }
-        #port p { font-weight: 600; font-size: 1.3rem; margin: 0.5rem 0; }
-        #port a { color: #2563eb; font-weight: 500; text-decoration: none; }
-
-        /* education */
-        .educat {
-            background: white;
-            border-radius: 2.5rem;
-            padding: 2rem;
-        }
-        .edu {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 2rem;
-            justify-content: space-around;
-        }
-        .educ, .educati { flex: 1 1 240px; }
-        .edua, .ed {
-            background: #f8faff;
-            border-radius: 30px;
-            padding: 1.3rem;
-            margin: 0.5rem 0;
-        }
-        .edua a, .ed a {
-            text-decoration: none;
-            color: #1e293b;
-            font-weight: 600;
-        }
-        span { color: #3b4e6b; font-weight: 400; }
-
-        /* service */
-        .service_two {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 2rem;
-            margin: 2rem 0;
-            justify-content: center;
-        }
-        .web1, .ui, .brand {
-            background: white;
-            border-radius: 2.5rem;
-            padding: 2rem 1.5rem;
-            flex: 1 1 200px;
-            max-width: 250px;
-            text-align: center;
-        }
-        .web1 i, .ui i, .brand i {
-            font-size: 3rem;
-            color: #2563eb;
-        }
-        .web1 p, .ui p, .brand p {
-            font-size: 1.3rem;
-            font-weight: 600;
-            margin: 1rem 0;
-        }
-        .web1 a, .ui a, .brand a {
-            text-decoration: none;
-            color: #0f2b4b;
-        }
-
-        /* contact */
-        .contactbox {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 1.5rem;
-            justify-content: center;
-            margin: 2rem 0;
-        }
-        .conmail, .conwhatsapp, .conmessenger {
-            background: white;
-            border-radius: 2rem;
-            padding: 2rem 1.2rem;
-            flex: 1 1 180px;
-            text-align: center;
-        }
-        .conmail i, .conwhatsapp i, .conmessenger i {
-            font-size: 2.5rem;
-            margin-bottom: 0.5rem;
-        }
-        .conmail a, .conwhatsapp a, .conmessenger a {
-            text-decoration: none;
-            color: #1e293b;
-            display: block;
-        }
-        #Writ { color: #2563eb; margin-top: 0.5rem; font-weight: 500; }
-
-        .for {
-            background: white;
-            border-radius: 2.5rem;
-            padding: 2rem;
-            max-width: 700px;
-            margin: 2rem auto;
-        }
-        .input, textarea {
-            width: 100%;
-            padding: 1rem 1.5rem;
-            border: 1px solid #ccd9f0;
-            border-radius: 50px;
-            font-size: 1rem;
-            background: #fbfdff;
-        }
-        textarea { border-radius: 30px; min-height: 120px; }
-        #btmn {
-            background: #1e3a8a;
-            color: white;
-            border: none;
-            padding: 1rem 2.5rem;
-            border-radius: 50px;
-            font-size: 1.2rem;
-            width: 100%;
-            cursor: pointer;
-        }
-
-        /* popups */
-        .popup, .pop, .popu {
-            position: fixed;
-            top: 50%; left: 50%;
-            transform: translate(-50%, -50%);
-            background: white;
-            padding: 2rem;
-            border-radius: 3rem;
-            box-shadow: 0 30px 50px #00000030;
-            z-index: 2000;
-            display: none;
-            width: 90%;
-            max-width: 380px;
-        }
-        #cross {
-            float: right;
-            font-size: 2rem;
-            cursor: pointer;
-        }
-
-        /* ==========  RESPONSIVE ========== */
-        @media screen and (max-width: 1024px) {
-            /* tablet: reduce menu width */
-            .menu { width: 200px; }
-            .home { margin-left: 200px; width: calc(100% - 200px); padding: 1rem; }
-            .web h1 { font-size: 2.2rem; }
-        }
-
-        @media screen and (max-width: 800px) {
-            /* make menu a top bar */
-            .menu {
-                position: fixed;
-                top: 0;
-                left: 0;
-                width: 100%;
-                height: auto;
-                backdrop-filter: blur(12px);
-                background: #ffffffeb;
-                box-shadow: 0 4px 20px #00000010;
-                z-index: 999;
-            }
-            .menu nav {
-                flex-direction: row;
-                align-items: center;
-                padding: 0.6rem 1.2rem;
-                height: auto;
-                flex-wrap: wrap;
-            }
-            .side {
-                margin-bottom: 0;
-                border-bottom: none;
-                font-size: 1.3rem;
-                padding-right: 1rem;
-            }
-            .home_l {
-                flex-direction: row;
-                flex-wrap: wrap;
-                gap: 0.3rem;
-                justify-content: flex-end;
-                flex: 1;
-            }
-            .menu_list {
-                padding: 0.3rem 0.8rem;
-                gap: 0.3rem;
-            }
-            .menu_list a {
-                font-size: 0.9rem;
-            }
-            .menu_list i {
-                font-size: 1rem;
-                width: 1.2rem;
-            }
-            .icon {
-                margin-top: 0;
-                border-top: none;
-                padding: 0;
-                font-size: 1.2rem;
-                gap: 0.6rem;
-                align-items: center;
-            }
-            .home {
-                margin-left: 0;
-                width: 100%;
-                padding: 5rem 1rem 1rem; /* push below top bar */
-            }
-        }
-
-        @media screen and (max-width: 600px) {
-            .menu nav { gap: 0.4rem; }
-            .side { font-size: 1.1rem; }
-            .menu_list { padding: 0.2rem 0.5rem; }
-            .menu_list a { font-size: 0.8rem; }
-            .menu_list i { font-size: 0.9rem; }
-            .icon { font-size: 1rem; gap: 0.4rem; }
-            .web h1 { font-size: 2rem; }
-            .web h3 { font-size: 1.4rem; }
-            .box { flex-direction: column; align-items: stretch; }
-            .about_one { padding: 1.5rem; }
-            .img img { width: 200px; height: 200px; }
-            .photo img { max-height: 350px; }
-        }
-
-        @media screen and (max-width: 420px) {
-            .menu_list a { font-size: 0.7rem; }
-            .menu_list i { font-size: 0.8rem; }
-            .icon i { font-size: 0.9rem; }
-            .side { font-size: 1rem; }
-            .web h1 { font-size: 1.8rem; }
-        }
-
-        /* fix popup images */
-        button a { color: white; text-decoration: none; }
-        .fa-arrow-right { margin-left: 0.2rem; }
-    </style>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
 </head>
 <body>
     <div class="main" id="main">
-        <!-- menu: now responsive (top bar on mobile/tablet) -->
         <div class="menu">
-            <nav>  
-                <div class="side">SHERE ALI</div>
-                <div class="home_l">
-                    <div class="menu_list">
-                        <i class="fa-solid fa-house"></i>
-                        <a href="#home">Home</a>
-                    </div>
-                    <div class="menu_list">
-                        <i class="fa-solid fa-user"></i>
-                        <a href="#about">About</a>
-                    </div>
-                    <div class="menu_list">
-                        <i class="fa-solid fa-list-check"></i>
-                        <a href="#portfolio">Project</a>
-                    </div>
-                    <div class="menu_list">
-                        <i class="fa-solid fa-bars"></i>
-                        <a href="#service">Service</a>
-                    </div>
-                    <div class="menu_list">
-                        <i class="fa-solid fa-comments"></i>
-                        <a href="#contact">Contact Us</a>
-                    </div>
-                    <div class="icon">
-                        <i class="fa-brands fa-facebook" id="fb"></i>
-                        <i class="fa-brands fa-instagram" id="insta"></i>
-                        <i class="fa-brands fa-youtube" id="yt"></i>
-                        <i class="fa-brands fa-whatsapp" id="whats"></i>
-                    </div>
+          <nav>  
+            <div class="side">SHERE ALI</div>
+            <div class="home_l">
+                <div class="menu_list">
+                    <i class="fa-solid fa-house"></i>
+                    <a href="">Home</a>
                 </div>
-            </nav>  
-        </div>
-
-        <!-- main content -->
-        <div class="home" id="home">
-            <!-- hero section -->
-            <div class="Home"> 
-                <div class="web">
-                    <h1>Hi, I'am Shere Ali</h1>
-                    <h3>Web Development</h3>
-                    <p>High level experience in web design and development knowledge, producing quality work.</p>
-                    <button>
-                        <i class="fa-solid fa-user"></i>
-                        <a href="#about">More About Me</a>
-                    </button>
+                <div class="menu_list">
+                    <i class="fa-solid fa-user"></i>
+                    <a href="#about">About</a>
                 </div>
-                <div class="photo">
-                    <img src="ali.png" alt="Shere Ali" height="500" width="500" loading="lazy">
+                <div class="menu_list">
+                    <i class="fa-solid fa-list-check"></i>
+                    <a href="#portfolio">Project</a>
+                </div>
+                <div class="menu_list">
+                    <i class="fa-solid fa-bars"></i>
+                    <a href="#service">Service</a>
+                </div>
+                <div class="menu_list">
+                    <i class="fa-solid fa-comments"></i>
+                    <a href="#contact">Contact Us</a>
+                </div>
+                <div class="icon">
+                    <i class="fa-brands fa-facebook" id="fb"></i>
+                    <i class="fa-brands fa-instagram" id="insta"></i>
+                    <i class="fa-brands fa-youtube" id="yt"></i>
+                    <i class="fa-brands fa-whatsapp" id="whats"></i>
                 </div>
             </div>
-
-            <!-- about section -->
-            <div class="about" id="about">
-                <p id="into">My Intro</p>
-                <h1>About Me</h1>
-                <div class="about_one">
-                    <div class="img">
-                        <img src="ali.png" alt="profile" height="270" width="270" loading="lazy">
-                    </div>
-                    <div class="about_two">
-                        <h2>Hi, I'm Shere Ali, Belong in Bihar</h2>
-                        <p>Web development with extensive knowledge and years of experience, working in web technologies, delivering quality work.</p>
-                        <div class="box">
-                            <div class="experience">
-                                <i class="fa-solid fa-briefcase"></i>
-                                <a href="#" onclick="togg(); return false;">Experience</a>
-                                <div class="ex">6 Month</div>
-                            </div>
-                            <div class="Project">
-                                <i class="fa-solid fa-list-check"></i>
-                                <a href="#portfolio">Completed</a>
-                                <div class="pro">3 Project</div>
-                            </div>
-                            <div class="support">
-                                <i class="fa-solid fa-headphones"></i>
-                                <a href="#contact">Support</a>
-                                <div class="on">Online 24/7</div>
-                            </div>
-                        </div>
-                        <button id="btn1">
-                            <a href="#contact">Contact Me</a>
-                        </button>
-                    </div>
-                </div>
-
-                <!-- project section -->
-                <div class="project_one1" id="portfolio">
-                    <p id="po">My Portfolio</p>
-                    <h1>Recent Project</h1>
-                    <div class="work">
-                        <div class="gramin" id="port">
-                            <img src="csc.png" alt="Gramin Seva" height="200" width="300" loading="lazy">
-                            <p>Gramin Seva</p>
-                            <a href="#" onclick="toggle(); return false;">Demo</a>
-                            <i class="fa-solid fa-arrow-right"></i>   
-                        </div>
-                        <div class="portfolio" id="port">
-                            <img src="portfolio.png" alt="Loan Website" height="200" width="300" loading="lazy">
-                            <p>Loan Website</p>
-                            <a href="#" onclick="toggl(); return false;">Demo</a>
-                            <i class="fa-solid fa-arrow-right"></i>
-                        </div>
-                        <div class="smartboard" id="port">
-                            <img src="smartboard.png" alt="Smart Board" height="200" width="300" loading="lazy">
-                            <p>Smart Board</p>
-                            <a href="#" onclick="togg(); return false;">Demo</a>
-                            <i class="fa-solid fa-arrow-right"></i>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- education -->
-                <div class="education">
-                    <p id="Jour">My Journey</p>
-                    <h1>Qualification</h1>
-                    <div class="educat">
-                        <div class="edu">
-                            <div class="educ">
-                                <div class="edua">
-                                    <a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgiXvHwWY0Ywgi5-BGT4AwbE9X9pzyOJg1nTcwtr3Rs-W-4T6nX1ArtNCtCLr9e-N2T-NdeIU5WhHTGL-Of0Ajs9AgfRxfonavUlpcZigUDqRNHmQsZNCqDEq6Zq03oI5yFOKYIXKKyJpOt2xU9KL9-ArI82JFZG9JWNoVD_eW5M3dXHU5JKWYzl2b_7WY/s698/img122.jpg">Sharon's Public School<br><span>CLASS X</span><br><i class="fa-solid fa-business-time"></i><span id="X">2016-2017</span> </a>
-                                </div>
-                                <div class="ed">
-                                    <a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjelm89Il6H5fz545-P1SyXvym3ei8UfHaW2xIOqi9w4WVTOZWzJ46Wvp3AQHDEZPyv3qFM-uBq2oM7IVePvu944Brlr9qNlphFzq3tgzCY_98OCvIUDKdFnTT3zxPyjZ6M1UGfPKe5w_ZhgB4AuahG7KwoQEsYjCdkdWqU51pyO-9zC2NV1Cz0o2z5z7Q/s1650/Adobe%20Scan%2019-Sept-2023_page-0001.jpg">A.N.COLLEGE<br><span>BA PSYCHOLOGY</span><br><i class="fa-solid fa-business-time"></i><span id="X">2020-2023</span> </a>
-                                </div>
-                            </div>
-                            <div class="educati">
-                                <div class="edua">
-                                    <a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiqmOunFbOVwrvzo5Kx4XaE0zQy_HdsUHJ2-c9VPclxwKPMcuc6nfxZSH_ib7sh6-sUvzHwC7f9s1Oi-UmQ_Y98caiMmrAV6DXQ6i61s55K_RKHYOS_OZJB4ex6FFu_wKuIPNz-NsnhQ3AsdL5sJM68kL-arbKdgn8Iw4cJaFZsh2YdZr8GjEm8SVt7_7c/s810/img123.jpg">BBOSE<br><span>CLASS XII</span><br><i class="fa-solid fa-business-time"></i><span id="X">2017-2019</span> </a>
-                                </div>
-                                <div class="ed">
-                                    <a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjZMFiSFJ_FA4mqDyH-IEgaHs2zTaTSt7pIrQy11ovqjtznlpj4usKMqvrIqrmZtQrm8_7xnjQjlsjwNB1Q4fb4pxPoA9U2X8-pC4BCMJdJw7o90CLJSENzQxyAvLdm2-I0QvK90ZuoveWKS652eilBSUiyc7vsdqzQ0t5OQtEwf3iU7p_kyWmnc7QunIc/s1755/mca_page-0001.jpg">B.S.COLLEGE<br><span>MCA</span><br><i class="fa-solid fa-business-time"></i><span id="X">2023-Present</span> </a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- services -->
-                <div class="service_one" id="service">
-                    <p class="ser">Service</p>
-                    <h1>What I Offer</h1>
-                    <div class="service_two">
-                        <div class="web1">
-                            <i class="fa-brands fa-firefox-browser" id="fire"></i>
-                            <p>Web <br>Designer</p>
-                            <a href="https://wa.me/6203798089?text=Hi' Shere%20I'm%20interested%20in%20your%20web%20designer" target="_blank">View More</a>
-                            <i class="fa-solid fa-arrow-right"></i>
-                        </div>
-                        <div class="ui">
-                            <i class="fa-solid fa-code" id="des"></i>
-                            <p>UI/UX<br>Designer</p>
-                            <a href="https://wa.me/6203798089?text=Hi' Shere%20I'm%20interested%20in%20your%20UI/UX%20designer" target="_blank">View More</a>
-                            <i class="fa-solid fa-arrow-right"></i>
-                        </div>
-                        <div class="brand">
-                            <i class="fa-brands fa-wordpress" id="brad"></i>
-                            <p>Wordpress<br>Designer</p>
-                            <a href="https://wa.me/6203798089?text=Hi' Shere%20I'm%20interested%20in%20your%20Wordpress" target="_blank">View More</a>
-                            <i class="fa-solid fa-arrow-right"></i>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- contact -->
-                <div class="contact1" id="contact">
-                    <p id="con">Get in touch</p>
-                    <h1>Contact Us</h1>
-                    <div class="frm">
-                        <div class="contactbox">
-                            <div class="conmail">
-                                <i class="fa-solid fa-envelope" id="cone"></i><br>
-                                <a href="mailto:shereali176@gmail.com" target="_blank">E-mail<br> shereali176@gmail.com</a>
-                                <a href="mailto:shereali176@gmail.com" id="Writ" target="_blank">Write me</a>
-                                <i class="fa-solid fa-arrow-right" id="writ"></i>
-                            </div>
-                            <div class="conwhatsapp">
-                                <i class="fa-brands fa-whatsapp" id="conwh"></i><br>
-                                <a href="https://wa.me/6203798089?text=Hi Sher" target="_blank">Whatsapp<br>+91-620-379-8089</a>
-                                <a href="https://wa.me/6203798089?text=Hi Sher" id="Writ" target="_blank">Write me</a>
-                                <i class="fa-solid fa-arrow-right" id="writ"></i>
-                            </div>
-                            <div class="conmessenger">
-                                <i class="fa-brands fa-facebook-messenger" id="conme"></i><br>
-                                <a>Messenger<br>shereali.fb</a>
-                                <a href="#" id="Writ">Write me</a>
-                                <i class="fa-solid fa-arrow-right" id="writ"></i>
-                            </div>
-                        </div>
-                        <div class="for">
-                            <form action="https://formsubmit.co/el/confirm/e4f2991867d0a08fdba86d2d8084a98f" method="POST" >
-                                <input type="text" placeholder="Your Name" class="input" required><br><br>
-                                <input type="email" placeholder="Your E-mail" class="input" required><br><br>
-                                <input type="number" placeholder="Your Number" class="input" required><br><br>
-                                <textarea placeholder="Your Message" required></textarea><br><br>
-                                <button id="btmn" type="submit">Send Message</button>
-                            </form>
-                        </div>
-                    </div>
-                </div>
-            </div>   
+          </nav>  
         </div>
-
-        <!-- popups -->
+        <div class="home" id="home">
+            <div class="Home"> 
+                <div class="web">
+                <h1>Hi, I'am Shere Ali</h1>
+                <h3>Web Development</h3>
+                <p>High level experience in web design and development knowledge, producing quality work.</p>
+                <button>
+                    <i class="fa-solid fa-user"></i>
+                    <a href="#about">More About Me</a>
+                </button>
+            </div>
+            <div class="photo">
+                <img src="ali.png" height="500px" width="500px">
+            </div>
+        </div>
+        <div class="about" id="about">
+            <p id="into">My Intro</p>
+            <h1>About Me</h1>
+            <div class="about_one">
+                <div class="img">
+                    <img src="ali.png" height="270px" width="270px">
+                </div>
+                <div class="about_two">
+                 <h2>Hi, I'm Shere Ali, Belong in Bihar</h2>
+                 <p>Web development with extensive knowledge and years of experience, working in web technologies, delivering quality work.</p>
+                 <div class="box">
+                    <div class="experience">
+                        <i class="fa-solid fa-briefcase"></i>
+                        <a href="#" onclick="togg()">Experience</a>
+                        <div class="ex">6 Month</div>
+                    </div>
+                    <div class="Project">
+                        <i class="fa-solid fa-list-check"></i>
+                        <a href="#portfolio">Completed</a>
+                        <div class="pro">3 Project</div>
+                    </div>
+                    <div class="support">
+                        <i class="fa-solid fa-headphones"></i>
+                        <a href="#contact">Support</a>
+                        <div class="on">Online 24/7</div>
+                    </div>
+                 </div>
+                 <button id="btn1">
+                    <a href="#contact">Contact Me</a>
+                 </button>
+            </div>
+            </div>
+            <div class="project_one1" id="portfolio">
+                <p id="po">My Portfolio</p>
+                <h1>Recent Project</h1>
+                <div class="work">
+                    <div class="gramin" id="port">
+                        <img src="csc.png" height="200px" width="300px">
+                        <p>Gramin Seva</p>
+                        <a href="#" onclick="toggle()">Demo</a>
+                        <i class="fa-solid fa-arrow-right"></i>   
+                    </div>
+                    <div class="portfolio" id="port">
+                        <img src="portfolio.png" height="200px" width="300px">
+                        <p>Loan Website</p>
+                        <a href="#" onclick="toggl()">Demo</a>
+                        <i class="fa-solid fa-arrow-right"></i>
+                    </div>
+                    <div class="smartboard" id="port">
+                        <img src="smartboard.png" height="200px" width="300px">
+                        <p>Smart Board</p>
+                        <a href="#" onclick="togg()">Demo</a>
+                        <i class="fa-solid fa-arrow-right"></i>
+                    </div>
+                </div>
+            </div>
+            <div class="education">
+                <p id="Jour">My Journey</p>
+                <h1>Qualification</h1>
+                <div class="educat">
+                    <div class="edu">
+                        <div class="educ">
+                            <div class="edua">
+                                <a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgiXvHwWY0Ywgi5-BGT4AwbE9X9pzyOJg1nTcwtr3Rs-W-4T6nX1ArtNCtCLr9e-N2T-NdeIU5WhHTGL-Of0Ajs9AgfRxfonavUlpcZigUDqRNHmQsZNCqDEq6Zq03oI5yFOKYIXKKyJpOt2xU9KL9-ArI82JFZG9JWNoVD_eW5M3dXHU5JKWYzl2b_7WY/s698/img122.jpg">Sharon's Public School<br><span>CLASS X</span><br><i class="fa-solid fa-business-time"></i><span id="X">2016-2017</span> </a>
+                            </div><br>
+                            <div class="ed">
+                                <a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjelm89Il6H5fz545-P1SyXvym3ei8UfHaW2xIOqi9w4WVTOZWzJ46Wvp3AQHDEZPyv3qFM-uBq2oM7IVePvu944Brlr9qNlphFzq3tgzCY_98OCvIUDKdFnTT3zxPyjZ6M1UGfPKe5w_ZhgB4AuahG7KwoQEsYjCdkdWqU51pyO-9zC2NV1Cz0o2z5z7Q/s1650/Adobe%20Scan%2019-Sept-2023_page-0001.jpg">A.N.COLLEGE<br><span>BA PSYCHOLOGY</span><br><i class="fa-solid fa-business-time"></i><span id="X">2020-2023</span> </a>
+                            </div>
+                        </div>
+                        <div class="educati">
+                            <div class="edua">
+                                <a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiqmOunFbOVwrvzo5Kx4XaE0zQy_HdsUHJ2-c9VPclxwKPMcuc6nfxZSH_ib7sh6-sUvzHwC7f9s1Oi-UmQ_Y98caiMmrAV6DXQ6i61s55K_RKHYOS_OZJB4ex6FFu_wKuIPNz-NsnhQ3AsdL5sJM68kL-arbKdgn8Iw4cJaFZsh2YdZr8GjEm8SVt7_7c/s810/img123.jpg">BBOSE<br><span>CLASS XII</span><br><i class="fa-solid fa-business-time"></i><span id="X">2017-2019</span> </a>
+                            </div><br>
+                            <div class="ed">
+                                <a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjZMFiSFJ_FA4mqDyH-IEgaHs2zTaTSt7pIrQy11ovqjtznlpj4usKMqvrIqrmZtQrm8_7xnjQjlsjwNB1Q4fb4pxPoA9U2X8-pC4BCMJdJw7o90CLJSENzQxyAvLdm2-I0QvK90ZuoveWKS652eilBSUiyc7vsdqzQ0t5OQtEwf3iU7p_kyWmnc7QunIc/s1755/mca_page-0001.jpg">B.S.COLLEGE<br><span>MCA</span><br><i class="fa-solid fa-business-time"></i><span id="X">2023-Present</span> </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="service_one" id="service">
+                <p class="ser">Service</p>
+                <h1>What I Offer</h1>
+                <div class="service_two">
+                    <div class="web1">
+                        <i class="fa-brands fa-firefox-browser" id="fire"></i>
+                        <p>Web <BR>Designer</p>
+                        <a href="https://wa.me/6203798089?text=Hi' Shere%20I'm%20interested%20in%20your%20web%20designer" target="_blank">View More</a>
+                        <i class="fa-solid fa-arrow-right"></i>
+                    </div>
+                    <div class="ui">
+                        <i class="fa-solid fa-code" id="des"></i>
+                        <p>UI/UX<br>Designer</p>
+                        <a href="https://wa.me/6203798089?text=Hi' Shere%20I'm%20interested%20in%20your%20UI/UX%20designer" target="_blank">View More</a>
+                        <i class="fa-solid fa-arrow-right"></i>
+                    </div>
+                    <div class="brand">
+                        <i class="fa-brands fa-wordpress" id="brad"></i>
+                        <p>Wordpress<br>Designer</p>
+                        <a href="https://wa.me/6203798089?text=Hi' Shere%20I'm%20interested%20in%20your%20Wordpress" target="_blank">View More</a>
+                        <i class="fa-solid fa-arrow-right"></i>
+                    </div>
+                </div>
+            </div>
+            <div class="contact1" id="contact">
+                <p id="con">Get in touch</p>
+                <h1>Contact Us</h1>
+                <div class="frm">
+                    <div class="contactbox">
+                    <div class="conmail">
+                        <i class="fa-solid fa-envelope" id="cone"></i><br>
+                        <a href="mailto:shereali176@gmail.com" target="_blank">E-mail<br> shereali176@gmail.com</a>
+                        <a href="mailto:shereali176@gmail.com" id="Writ" target="_blank">Write me</a>
+                        <i class="fa-solid fa-arrow-right" id="writ"></i>
+                    </div>
+                    <div class="conwhatsapp">
+                        <i class="fa-brands fa-whatsapp" id="conwh"></i><br>
+                        <a href="https://wa.me/6203798089?text=Hi Sher" target="_blank">Whatsapp<br>+91-620-379-8089</a><br>
+                        <a href="https://wa.me/6203798089?text=Hi Sher" id="Writ" target="_blank">Write me</a>
+                        <i class="fa-solid fa-arrow-right" id="writ"></i>
+                    </div>
+                    <div class="conmessenger">
+                        <i class="fa-brands fa-facebook-messenger" id="conme"></i><br>
+                        <a>Messenger<br>shereali.fb</a><br>
+                        <a href="" id="Writ">Write me</a>
+                        <i class="fa-solid fa-arrow-right" id="writ"></i>
+                    </div>
+                </div>
+                <div class="for">
+                    <form action="https://formsubmit.co/el/confirm/e4f2991867d0a08fdba86d2d8084a98f" method="POST" >
+                        <input type="text" placeholder="Your Name" class="input" required><br><br>
+                        <input type="email" placeholder="Your E-mail" class="input" required><br><br>
+                        <input  type="number" placeholder="Your Number" class="input" required><br><br>
+                        <textarea placeholder="Your Message" required></textarea><br><br>
+                        <button id="btmn" type="submit">Send Message</button>
+                    </form>
+                </div>
+            </div>
+            </div>
+        </div>   
+        </div>
         <div class="popup" id="popup">
             <i class="fa-solid fa-xmark" id="cross" onclick="toggle()"></i>
             <h2>Gramin Seva</h2>
@@ -691,41 +216,6 @@
             <p>COMING SOON....</p>
         </div>
     </div>
-
-    <!-- simple JS for popups (keep your function names) -->
-    <script>
-        function toggle() {
-            let pop = document.getElementById('popup');
-            if (pop.style.display === 'none' || pop.style.display === '') {
-                pop.style.display = 'block';
-            } else {
-                pop.style.display = 'none';
-            }
-        }
-        function toggl() {
-            let pop = document.getElementById('pop');
-            if (pop.style.display === 'none' || pop.style.display === '') {
-                pop.style.display = 'block';
-            } else {
-                pop.style.display = 'none';
-            }
-        }
-        function togg() {
-            let pop = document.getElementById('popu');
-            if (pop.style.display === 'none' || pop.style.display === '') {
-                pop.style.display = 'block';
-            } else {
-                pop.style.display = 'none';
-            }
-        }
-        // close popups if click outside? (optional, but keep simple)
-        window.onclick = function(event) {
-            if (!event.target.closest('.popup') && !event.target.closest('.pop') && !event.target.closest('.popu') && !event.target.closest('a[onclick*="toggle"]')) {
-                document.getElementById('popup').style.display = 'none';
-                document.getElementById('pop').style.display = 'none';
-                document.getElementById('popu').style.display = 'none';
-            }
-        };
-    </script>
+    <script src="app.js"></script>
 </body>
 </html>
